@@ -218,7 +218,7 @@ export default function Mobile() {
                                 Author: Anteneh Gebeyaw<br/>
                                 Contact: <StyledLink target="_blank"
                                                      href="mailto:contact@qulph.com"> contact@qulph.com </StyledLink>
-                                <br></br>
+                                <br/><br/>
                                 More information about cases in Ethiopia is available at&nbsp;
                                 <StyledLink target="_blank"
                                             href="https://covid19.qulph.com">https://covid19.qulph.com</StyledLink>.
