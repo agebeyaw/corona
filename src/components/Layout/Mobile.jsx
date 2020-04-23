@@ -225,7 +225,7 @@ export default function Mobile() {
                             </Paragraph3>
                             <Paragraph3>
                                 The data provided here is collected from different sources, and mainly from official
-                                handles. If you want help in updating and verifying the data, please contact.
+                                handles. If you want help in updating and verifying the data, please contact me.
                             </Paragraph3>
                             <StyledLink target="_blank" href="https://github.com/agebeyaw/corona">
                                 https://github.com/agebeyaw/corona
