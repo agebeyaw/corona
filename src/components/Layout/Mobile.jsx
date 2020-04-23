@@ -33,11 +33,21 @@ function CustomTab(props) {
 }
 
 export default function Mobile() {
-    const {cases, cures, deaths, isLoading} = useData();
+    const {cases, cures, deaths, allTime, isLoading} = useData();
     const [isOpen, setIsOpen] = useState(false);
     const {useDarkTheme, setUseDarkTheme} = useTheme();
     const [activeKey, setActiveKey] = useState('0');
     const [css, theme] = useStyletron();
+
+    const  total = allTime || {
+        confirmed: 0,
+        recovered: 0,
+        deaths: 0,
+        active: 0,
+        deltaConfirmed: 0,
+        deltaRecovered: 0,
+        deltaDeaths: 0,
+    };
 
     return (
         <>
@@ -57,19 +67,12 @@ export default function Mobile() {
                     })}
                 >
                     <HeadingSmall margin={0}>Coronavirus in Ethiopia</HeadingSmall>
-                    <FlexGrid flexGridColumnCount={3}>
+                    <FlexGrid flexGridColumnCount={4}>
+
                         <FlexGridItem>
                             <Figure
-                                data={deaths}
-                                isLoading={isLoading}
-                                label="Deaths"
-                                color={theme.colors.primary}
-                                size="compact"
-                            />
-                        </FlexGridItem>
-                        <FlexGridItem>
-                            <Figure
-                                data={cases}
+                                count={total.confirmed}
+                                delta={total.deltaConfirmed}
                                 isLoading={isLoading}
                                 label="Confirmed"
                                 color={theme.colors.negative}
@@ -78,10 +81,31 @@ export default function Mobile() {
                         </FlexGridItem>
                         <FlexGridItem>
                             <Figure
-                                data={cures}
+                                count={total.active}
+                                delta="0"
+                                isLoading={isLoading}
+                                label="Active"
+                                color="orange"
+                                size="compact"
+                            />
+                        </FlexGridItem>
+                        <FlexGridItem>
+                            <Figure
+                                count={total.recovered}
+                                delta={total.deltaRecovered}
                                 isLoading={isLoading}
                                 label="Recovered"
                                 color={theme.colors.positive}
+                                size="compact"
+                            />
+                        </FlexGridItem>
+                        <FlexGridItem>
+                            <Figure
+                                count={total.deaths}
+                                delta={total.deltaDeaths}
+                                isLoading={isLoading}
+                                label="Deaths"
+                                color={theme.colors.primary}
                                 size="compact"
                             />
                         </FlexGridItem>

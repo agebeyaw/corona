@@ -32,9 +32,9 @@ function CountLoader() {
   );
 }
 
-export function Figure({ data, isLoading, label, color, size = 'standard' }) {
-  const total = (data && sum(data)) || 0;
-  const todayGrowth = (data && sum(data.filter(({ date }) => date === moment().format('YYYY-MM-DD')))) || 0;
+export function Figure({ count, delta, isLoading, label, color, size = 'standard' }) {
+  const total = count || 0
+  const todayGrowth = delta || 0;
 
   return (
     <div>
@@ -91,7 +91,19 @@ export function Figure({ data, isLoading, label, color, size = 'standard' }) {
 
 
 export default function Figures() {
-  const { cases, deaths, cures, isLoading } = useData();
+  const { cases, deaths, allTime, cures, isLoading } = useData();
+
+  const  total = allTime || {
+    confirmed: 0,
+    recovered: 0,
+    deaths: 0,
+    active: 0,
+    deltaConfirmed: 0,
+    deltaRecovered: 0,
+    deltaDeaths: 0,
+  };
+
+  console.log(total.confirmed, "##############");
   // const [showMore, setShowMore] = useState(false);
   const [, theme] = useStyletron();
   const { width } = useWindowDimensions()
@@ -111,27 +123,49 @@ export default function Figures() {
     >
       <StyledBody>
         <Figure
-          data={deaths}
-          isLoading={isLoading}
-          label="Deaths"
-          color={theme.colors.primary}
-          size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
+            count={total.tested}
+            delta="0"
+            isLoading={isLoading}
+            label="Tested"
+            color="#2ABAFF"
+            size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
         <Figure
-          data={cases}
+          count={total.confirmed}
+          delta={total.deltaConfirmed}
           isLoading={isLoading}
           label="Confirmed"
           color={theme.colors.negative}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
+          <Figure
+              count={total.active}
+              delta="0"
+              isLoading={isLoading}
+              label="Active"
+              color="orange"
+              size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
+          />
         <Figure
-          data={cures}
+          count={total.recovered}
+          delta={total.deltaRecovered}
           isLoading={isLoading}
           label="Recovered"
           color={theme.colors.positive}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
+      <Figure
+          count={total.deaths}
+          delta={total.deltaDeaths}
+          isLoading={isLoading}
+          label="Deaths"
+          color={theme.colors.primary}
+          size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
+      />
       </StyledBody>
+      <Paragraph3>
+        <small>Last updated on <em>{total.lastUpdatedTime}</em></small>
+      </Paragraph3>
     </StyledCard>
   );
 }

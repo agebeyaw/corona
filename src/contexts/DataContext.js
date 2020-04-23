@@ -62,11 +62,12 @@ import React, {
 
   let parsedCases = [];
   for (let i = 0; i < len; i++) {
-   parsedCases.push(parseCases(data, i))
+   parsedCases.push(parseCases(data, i, apiResult.total))
   }
 
   let finalDatabase = parsedCases[0];
   finalDatabase['cities'] = cities['cities'];
+  finalDatabase['allTime'] = apiResult.total;
 
   for (let i = 1; i < len; i++) {
    for (let j in parsedCases[i].cases) finalDatabase['cases'].push(parsedCases[i]['cases'][j]);
