@@ -100,7 +100,10 @@ export default function Map(props) {
       zoomControl={false}
       maxZoom={13}
       minZoom={ width < theme.breakpoints.medium ? 6 : 7}
-      // maxBounds={[[48.302684, 12.363282], [56.137388, 26.572265]]}
+      maxBounds={[
+          [11, 31],  // Southwest coordinates
+          [8.019137, 48.006032]] // Northeast coordinates
+      }
       {...props}
     ><TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -139,7 +142,7 @@ export default function Map(props) {
         position={activeCity.location}
         onClose={() => setActiveCity(null)}
       >
-         <StyledCard 
+         <StyledCard
           style={$theme => ({
             [$theme.mediaQuery.large]: {
               width: '320px'
