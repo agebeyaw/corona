@@ -98,11 +98,11 @@ export default function Map(props) {
       center={position}
       zoom={clickedCity ? 10 : width < theme.breakpoints.medium ? 4 : 5}
       zoomControl={false}
-      maxZoom={13}
+      maxZoom={11}
       minZoom={ width < theme.breakpoints.medium ? 6 : 7}
       maxBounds={[
-          [11, 31],  // Southwest coordinates
-          [8.019137, 48.006032]] // Northeast coordinates
+          [3, 25],  // Southwest coordinates
+          [15, 55]] // Northeast coordinates
       }
       {...props}
     ><TileLayer
