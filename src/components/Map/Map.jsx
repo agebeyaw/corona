@@ -154,14 +154,15 @@ export default function Map(props) {
 
             <Block marginTop="10px">
         {/*      <Figure
-                data={activeCity.deaths.data}
+                data={activeCity.deaths.total}
                 label="Deaths"
                 color={theme.colors.primary}
                 size="compact"
               />*/}
 
               <Figure
-                data={activeCity.cases.data}
+                count={activeCity.cases.total}
+                delta="0"
                 label="Confirmed cases"
                 color={theme.colors.negative}
                 size="compact"
