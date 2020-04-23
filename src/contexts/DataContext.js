@@ -7,16 +7,15 @@ import React, {
 
  import * as cities from './cities.json';
  const DataContext = createContext();
- 
+
  export function DataProvider(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [clickedCity, setClickedCity] = useState(null)
 
-  
-  // API presents official data from https://www.mohfw.gov.in/
+
   useEffect(() => {
-   fetch("https://api.rootnet.in/covid19-in/stats/daily")
+   fetch(process.env.REACT_APP_API_URL +"/api/data_for_map.json")
     .then(res => res.json())
     .then(
      (result) => {
@@ -27,7 +26,7 @@ import React, {
       console.log('error in retriving data.')
      });
   }, []);
- 
+
   return ( <
    DataContext.Provider value = {
     {
@@ -42,42 +41,25 @@ import React, {
    />
   )
  }
- 
+
  export function useData() {
   return useContext(DataContext);
  }
- 
- 
+
+
  function processData(apiResult) {
   if (apiResult.success === 'false') return {};
   let data = apiResult.data;
   const len = data.length;
 
-  // Correcting state naming in api
-  //data[8].regional[7].loc = "Puducherry"; data[9].regional[8].loc = "Puducherry";
-  
-  // adding count field
+   // adding count field
   for (let i in data) {
    let cases = data[i].regional;
    for (let j in cases) {
-    cases[j]['count'] = cases[j].confirmedCasesIndian + cases[j].confirmedCasesForeign;
+    cases[j]['count'] = cases[j].confirmedCases;
    }
   }
- 
-  // To form same data as used in original project, we preprocess data
-  // First date of database will contain all initial values
-  // Onwards data will contain only increment in values
-  // Code isn't optimized yet.
 
-  let tempRegional = [];
-  for (let i = len - 1; i > 0; i--) {
-   tempRegional.push(solveDifference(data[i].regional, data[i - 1].regional));
-  }
-
-  for (let i = len - 1, j = 0; i > 0; i--, j++) {
-   data[i].regional = tempRegional[j];
-  }
- 
   let parsedCases = [];
   for (let i = 0; i < len; i++) {
    parsedCases.push(parseCases(data, i))
@@ -91,10 +73,10 @@ import React, {
    for (let j in parsedCases[i].cures) finalDatabase['cures'].push(parsedCases[i]['cures'][j]);
    for (let j in parsedCases[i].deaths) finalDatabase['deaths'].push(parsedCases[i]['deaths'][j]);
   }
- 
+
   return finalDatabase;
  }
- 
+
  // Parse Cases according to old database
  function parseCases(data, targetDay) {
   let day = data[targetDay].day;
@@ -102,14 +84,14 @@ import React, {
   let cases = [],
    deaths = [],
    cures = [];
- 
+
   for (let i in targetCases) {
    let caseConfirmed = {
     "city": targetCases[i].loc,
     "count": targetCases[i].count,
     "date": day
    }
- 
+
    cases.push(caseConfirmed);
    if (parseInt(targetCases[i].deaths) !== 0) {
     let death = {
@@ -128,7 +110,7 @@ import React, {
     cures.push(cure);
    }
   }
- 
+
   let res = {
    "cases": cases,
    "deaths": deaths,
@@ -136,11 +118,11 @@ import React, {
   }
   return res;
  }
- 
+
  // Calculate difference between value of two consecutive days
  function solveDifference(regionalNew, regionalOld) {
   let tempDiff = [];
- 
+
   for (let i in regionalNew) {
    let newState = true;
    for (let j in regionalOld) {

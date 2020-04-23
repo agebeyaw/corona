@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {StyledBody} from 'baseui/card';
 import {Tab, Tabs} from 'baseui/tabs';
 import {StyledCard} from '..';
-// import { Notification } from 'baseui/notification';
 
 import { useData } from '../../contexts/DataContext';
 import groupBy from 'lodash.groupby';
@@ -60,18 +59,18 @@ export default function DataElement() {
             }
           }}
         >
-          <Tab title="Confirmed Cases">
+          <Tab title="Confirmed">
             <CitiesSplit data={groupedCases} isLoading={isLoading} />
             <Recent data={cases} isLoading={isLoading} />
           </Tab>
-          <Tab title="Death">
+{/*          <Tab title="Deaths">
             <CitiesSplit data={groupedDeaths} isLoading={isLoading} />
             <Recent data={deaths} isLoading={isLoading} />
           </Tab>
-          <Tab title="Cured">
+          <Tab title="Recovered">
             <CitiesSplit data={groupedCures} isLoading={isLoading} />
             <Recent data={cures} isLoading={isLoading} />
-          </Tab>
+          </Tab>*/}
         </Tabs>
       </StyledBody>
     </StyledCard>

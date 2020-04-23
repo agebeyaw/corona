@@ -1,31 +1,25 @@
 
-# Coronavirus India map
+# Coronavirus Ethiopia map
 
-Shows map of coronavirus spread across India. Displays confirmed cases and death statistics of each state.
-Source : [https://www.mohfw.gov.in/](https://www.mohfw.gov.in/)
+Shows map of coronavirus spread across Ethiopia. Displays confirmed cases and death statistics of each city.
+Source : [https://docs.google.com/spreadsheets/d/1wFUxclZN5IZgnKXlXol2TIrWZ3UW2SLnDwQzZyRW11k/edit](https://docs.google.com/spreadsheets/d/1wFUxclZN5IZgnKXlXol2TIrWZ3UW2SLnDwQzZyRW11k/edit)
 
 
-## Contribute
+## Installation 
 
-* [Install node](https://nodejs.org/en/download/)
-* [Install yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
-* [Fork the repo](https://guides.github.com/activities/forking/#fork)
-* Clone your repo
+Clone this repo 
 ```
 $ cd corona
-$ yarn install
-$ yarn start
+$ npm install
+$ npm start
 ```
+
 
 ## Original Project
 * Github Repo : https://github.com/konradkalemba/korona.ws
 
 ## API
 
-Official Data
-* Stats as a daily series: https://api.rootnet.in/covid19-in/stats/daily
-* Github Repo: https://github.com/amodm/api-covid19-in
+https://covid19-ethiopia.qulph.com/api/data_for_maps.json
+https://covid19-ethiopia.qulph.com/api/cities.json
 
-## Unofficial map
-* https://covid19india.org
-* Github : https://github.com/BetaTurtle/covid19india

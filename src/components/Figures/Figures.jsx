@@ -98,7 +98,7 @@ export default function Figures() {
 
     return (
     <StyledCard
-      title="Coronovirus in India"
+      title="Coronovirus in Ethiopia"
       style={$theme => ({
         [$theme.mediaQuery.medium]: {
           maxHeight: 'calc(100vh - 80px)',
@@ -113,21 +113,21 @@ export default function Figures() {
         <Figure
           data={deaths}
           isLoading={isLoading}
-          label="Death"
+          label="Deaths"
           color={theme.colors.primary}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
         <Figure
           data={cases}
           isLoading={isLoading}
-          label="Confirmed Cases"
+          label="Confirmed"
           color={theme.colors.negative}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
         <Figure
           data={cures}
           isLoading={isLoading}
-          label="Cured"
+          label="Recovered"
           color={theme.colors.positive}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />

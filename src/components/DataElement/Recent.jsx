@@ -82,7 +82,7 @@ export default function Recent({ isLoading, data }) {
             <Paragraph3 margin={0}>Count</Paragraph3>
           </StyledHeadCell>
           <StyledHeadCell role="columnheader">
-            <Paragraph3 margin={0}>State</Paragraph3>
+            <Paragraph3 margin={0}>Location</Paragraph3>
           </StyledHeadCell>
         </StyledHead>
         <StyledTableBody>

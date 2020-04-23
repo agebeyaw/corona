@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Avatar } from 'baseui/avatar';
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
 
-const REPO = 'konradkalemba/korona.ws';
+const REPO = 'agebeyaw/corona';
 
 export default function Contributors() {
   const [data, setData] = useState([]);

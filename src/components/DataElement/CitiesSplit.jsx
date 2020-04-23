@@ -12,7 +12,7 @@ export default function CitiesSplit({ isLoading, data }) {
 
   return (
     <>
-      <Label3>Division in States</Label3>
+      <Label3>Division by Location</Label3>
       <Block
         $style={{
           height: '196px',

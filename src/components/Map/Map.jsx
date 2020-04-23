@@ -91,16 +91,15 @@ export default function Map(props) {
   }
 
   const max = Math.max(...(data.map(({ cases }) => cases.total)));
-  const position = clickedCity ? getLocationForCity(clickedCity, data) : [20.739, 78.745];
-
+  const position = clickedCity ? getLocationForCity(clickedCity, data) : [9.005401, 38.763611];
 
   return (
     <LeafletMap
       center={position}
-      zoom={clickedCity ? 9 : width < theme.breakpoints.medium ? 4 : 5}
-      zoomControl={false}      
-      maxZoom={9}
-      minZoom={2}
+      zoom={clickedCity ? 10 : width < theme.breakpoints.medium ? 4 : 5}
+      zoomControl={false}
+      maxZoom={13}
+      minZoom={ width < theme.breakpoints.medium ? 6 : 7}
       // maxBounds={[[48.302684, 12.363282], [56.137388, 26.572265]]}
       {...props}
     ><TileLayer
@@ -151,16 +150,16 @@ export default function Map(props) {
             <Label1>{activeCity.name}</Label1>
 
             <Block marginTop="10px">
-              <Figure
+        {/*      <Figure
                 data={activeCity.deaths.data}
-                label="Death"
+                label="Deaths"
                 color={theme.colors.primary}
                 size="compact"
-              />
+              />*/}
 
               <Figure
                 data={activeCity.cases.data}
-                label="Confirmed Cases"
+                label="Confirmed cases"
                 color={theme.colors.negative}
                 size="compact"
               />
