@@ -40,7 +40,7 @@ export default function Mobile() {
     const [activeKey, setActiveKey] = useState('0');
     const [css, theme] = useStyletron();
 
-    const  total = allTime || {
+    const total = allTime || {
         confirmed: 0,
         recovered: 0,
         deaths: 0,
@@ -68,7 +68,7 @@ export default function Mobile() {
                     })}
                 >
                     <HeadingSmall margin={0}>Coronavirus in Ethiopia</HeadingSmall>
-                    <FlexGrid flexGridColumnCount={window.innerWidth > 425?4:3}>
+                    <FlexGrid flexGridColumnCount={window.innerWidth > 425 ? 4 : 3}>
 
                         <FlexGridItem>
                             <Figure
@@ -80,16 +80,18 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
-                        <FlexGridItem>
-                            <Figure
-                                count={total.active}
-                                delta="0"
-                                isLoading={isLoading}
-                                label="Active"
-                                color="orange"
-                                size="compact"
-                            />
-                        </FlexGridItem>
+                        {window.innerWidth > 425 && (
+                            <FlexGridItem>
+                                <Figure
+                                    count={total.active}
+                                    delta="0"
+                                    isLoading={isLoading}
+                                    label="Active"
+                                    color="orange"
+                                    size="compact"
+                                />
+                            </FlexGridItem>
+                        )}
                         <FlexGridItem>
                             <Figure
                                 count={total.recovered}
@@ -100,8 +102,8 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
-                        {window.innerWidth > 425 && (
-                            <FlexGridItem>
+
+                        <FlexGridItem>
                             <Figure
                                 count={total.deaths}
                                 delta={total.deltaDeaths}
@@ -111,7 +113,7 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
-                        )}
+
                     </FlexGrid>
                 </div>
 
