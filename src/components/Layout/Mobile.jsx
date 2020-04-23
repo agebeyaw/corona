@@ -14,6 +14,7 @@ import {Tabs, Tab} from 'baseui/tabs';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
 import {Figure} from '../Figures/Figures';
 import {useData} from '../../contexts/DataContext';
+import {StyledBody} from "baseui/card";
 
 function CustomTab(props) {
     return (
@@ -67,7 +68,7 @@ export default function Mobile() {
                     })}
                 >
                     <HeadingSmall margin={0}>Coronavirus in Ethiopia</HeadingSmall>
-                    <FlexGrid flexGridColumnCount={4}>
+                    <FlexGrid flexGridColumnCount={window.innerWidth > 425?4:3}>
 
                         <FlexGridItem>
                             <Figure
@@ -99,7 +100,8 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
-                        <FlexGridItem>
+                        {window.innerWidth > 425 && (
+                            <FlexGridItem>
                             <Figure
                                 count={total.deaths}
                                 delta={total.deltaDeaths}
@@ -109,6 +111,7 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
+                        )}
                     </FlexGrid>
                 </div>
 
