@@ -14,6 +14,7 @@ import {Tabs, Tab} from 'baseui/tabs';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
 import {Figure} from '../Figures/Figures';
 import {useData} from '../../contexts/DataContext';
+import {StyledBody} from "baseui/card";
 
 function CustomTab(props) {
     return (
@@ -39,7 +40,7 @@ export default function Mobile() {
     const [activeKey, setActiveKey] = useState('0');
     const [css, theme] = useStyletron();
 
-    const  total = allTime || {
+    const total = allTime || {
         confirmed: 0,
         recovered: 0,
         deaths: 0,
@@ -67,7 +68,7 @@ export default function Mobile() {
                     })}
                 >
                     <HeadingSmall margin={0}>Coronavirus in Ethiopia</HeadingSmall>
-                    <FlexGrid flexGridColumnCount={4}>
+                    <FlexGrid flexGridColumnCount={window.innerWidth > 425 ? 4 : 3}>
 
                         <FlexGridItem>
                             <Figure
@@ -79,16 +80,18 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
-                        <FlexGridItem>
-                            <Figure
-                                count={total.active}
-                                delta="0"
-                                isLoading={isLoading}
-                                label="Active"
-                                color="orange"
-                                size="compact"
-                            />
-                        </FlexGridItem>
+                        {window.innerWidth > 425 && (
+                            <FlexGridItem>
+                                <Figure
+                                    count={total.active}
+                                    delta="0"
+                                    isLoading={isLoading}
+                                    label="Active"
+                                    color="orange"
+                                    size="compact"
+                                />
+                            </FlexGridItem>
+                        )}
                         <FlexGridItem>
                             <Figure
                                 count={total.recovered}
@@ -99,6 +102,7 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
+
                         <FlexGridItem>
                             <Figure
                                 count={total.deaths}
@@ -109,6 +113,7 @@ export default function Mobile() {
                                 size="compact"
                             />
                         </FlexGridItem>
+
                     </FlexGrid>
                 </div>
 
@@ -213,14 +218,14 @@ export default function Mobile() {
                                 Author: Anteneh Gebeyaw<br/>
                                 Contact: <StyledLink target="_blank"
                                                      href="mailto:contact@qulph.com"> contact@qulph.com </StyledLink>
-                                <br></br>
+                                <br/><br/>
                                 More information about cases in Ethiopia is available at&nbsp;
                                 <StyledLink target="_blank"
                                             href="https://covid19.qulph.com">https://covid19.qulph.com</StyledLink>.
                             </Paragraph3>
                             <Paragraph3>
                                 The data provided here is collected from different sources, and mainly from official
-                                handles. If you want help in updating and verifying the data, please contact.
+                                handles. If you want help in updating and verifying the data, please contact me.
                             </Paragraph3>
                             <StyledLink target="_blank" href="https://github.com/agebeyaw/corona">
                                 https://github.com/agebeyaw/corona

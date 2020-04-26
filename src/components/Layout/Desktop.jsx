@@ -118,14 +118,14 @@ export default function Layout() {
                                 Contact: <StyledLink target="_blank" href="mailto:contact@qulph.com">
                                 contact@qulph.com
                             </StyledLink>
-                                <br></br>
+                                <br/><br/>
                                 More information about cases in Ethiopia is available at&nbsp;
                                 <StyledLink target="_blank"
                                             href="https://covid19.qulph.com">https://covid19.qulph.com</StyledLink>.
                             </Paragraph3>
                             <Paragraph3>
                                 The data provided here is collected from different sources, and mainly from official
-                                handles. If you want help in updating and verifying the data, please contact.
+                                handles. If you want help in updating and verifying the data, please contact me.
                             </Paragraph3>
                             <StyledLink target="_blank" href="https://github.com/agebeyaw/corona">
                                 https://github.com/agebeyaw/corona

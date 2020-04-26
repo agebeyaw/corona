@@ -98,9 +98,12 @@ export default function Map(props) {
       center={position}
       zoom={clickedCity ? 10 : width < theme.breakpoints.medium ? 4 : 5}
       zoomControl={false}
-      maxZoom={13}
+      maxZoom={11}
       minZoom={ width < theme.breakpoints.medium ? 6 : 7}
-      // maxBounds={[[48.302684, 12.363282], [56.137388, 26.572265]]}
+      maxBounds={[
+          [3, 25],  // Southwest coordinates
+          [15, 55]] // Northeast coordinates
+      }
       {...props}
     ><TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -139,7 +142,7 @@ export default function Map(props) {
         position={activeCity.location}
         onClose={() => setActiveCity(null)}
       >
-         <StyledCard 
+         <StyledCard
           style={$theme => ({
             [$theme.mediaQuery.large]: {
               width: '320px'
@@ -151,14 +154,15 @@ export default function Map(props) {
 
             <Block marginTop="10px">
         {/*      <Figure
-                data={activeCity.deaths.data}
+                data={activeCity.deaths.total}
                 label="Deaths"
                 color={theme.colors.primary}
                 size="compact"
               />*/}
 
               <Figure
-                data={activeCity.cases.data}
+                count={activeCity.cases.total}
+                delta="0"
                 label="Confirmed cases"
                 color={theme.colors.negative}
                 size="compact"
