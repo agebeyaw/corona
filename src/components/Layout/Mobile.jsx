@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Map, DataElement, Contributors} from '../../components';
+import {Map, DataElement, Contributors, Header, Chart} from '../../components';
 
 import {useStyletron} from 'baseui';
 import {Layer} from 'baseui/layer';
@@ -14,7 +14,6 @@ import {Tabs, Tab} from 'baseui/tabs';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
 import {Figure} from '../Figures/Figures';
 import {useData} from '../../contexts/DataContext';
-import {StyledBody} from "baseui/card";
 
 function CustomTab(props) {
     return (
@@ -34,7 +33,7 @@ function CustomTab(props) {
 }
 
 export default function Mobile() {
-    const {cases, cures, deaths, allTime, isLoading} = useData();
+    const {allTime, isLoading} = useData();
     const [isOpen, setIsOpen] = useState(false);
     const {useDarkTheme, setUseDarkTheme} = useTheme();
     const [activeKey, setActiveKey] = useState('0');
@@ -52,22 +51,24 @@ export default function Mobile() {
 
     return (
         <>
+            <Header/>
             <div
                 className={css({
                     display: 'flex',
                     flexDirection: 'column',
                     minHeight: '100vh',
-                    width: '100vw'
+                    width: '100vw',
                 })}
             >
                 <div
+                    style={{'margin-top': '10px'}}
                     className={css({
                         backgroundColor: theme.colors.backgroundPrimary,
                         padding: theme.sizing.scale600,
                         paddingBottom: 0
                     })}
                 >
-                    <HeadingSmall margin={0}>Coronavirus in Ethiopia</HeadingSmall>
+                    <HeadingSmall margin={0}>የኮሮና ቫይረስ በኢትዮጵያ</HeadingSmall>
                     <FlexGrid flexGridColumnCount={window.innerWidth > 425 ? 4 : 3}>
 
                         <FlexGridItem>
@@ -75,7 +76,7 @@ export default function Mobile() {
                                 count={total.confirmed}
                                 delta={total.deltaConfirmed}
                                 isLoading={isLoading}
-                                label="Confirmed"
+                                label="የተገኘባቸው"
                                 color={theme.colors.negative}
                                 size="compact"
                             />
@@ -86,7 +87,7 @@ export default function Mobile() {
                                     count={total.active}
                                     delta="0"
                                     isLoading={isLoading}
-                                    label="Active"
+                                    label="በለይቶ ህክምና"
                                     color="orange"
                                     size="compact"
                                 />
@@ -97,7 +98,7 @@ export default function Mobile() {
                                 count={total.recovered}
                                 delta={total.deltaRecovered}
                                 isLoading={isLoading}
-                                label="Recovered"
+                                label="ያገገሙ"
                                 color={theme.colors.positive}
                                 size="compact"
                             />
@@ -108,7 +109,7 @@ export default function Mobile() {
                                 count={total.deaths}
                                 delta={total.deltaDeaths}
                                 isLoading={isLoading}
-                                label="Deaths"
+                                label="ህይወታቸው ያለፈ"
                                 color={theme.colors.primary}
                                 size="compact"
                             />
@@ -147,10 +148,10 @@ export default function Mobile() {
                         }
                     }}
                 >
-                    <CustomTab title="Maps">
+                    <CustomTab title="ካርታ">
                         <Map className={useDarkTheme ? 'dark-theme' : ''} style={{height: 'auto'}}/>
                     </CustomTab>
-                    <CustomTab title="Statistics">
+                    <CustomTab title="መረጃ በቁጥር">
                         <div
                             className={css({
                                 padding: theme.sizing.scale600,
@@ -177,23 +178,23 @@ export default function Mobile() {
                             }
                         }}
                     >
-                        Information
+                      ማስታወሻ
                     </Button>
-                    {/*          <Button
-            size={SIZE.mini}
-            onClick={() => setUseDarkTheme(!useDarkTheme)}
-            overrides={{
-              BaseButton: {
-                style: ({ $theme }) => ({
-                  borderRadius: $theme.borders.radius200,
-                  boxShadow: $theme.lighting.shadow500,
-                  marginLeft: '10px'
-                })
-              }
-            }}
-          >
-            Turn {useDarkTheme ? ' off ' : ' on '} dark mode
-          </Button>*/}
+                    <Button
+                        size={SIZE.mini}
+                        onClick={() => setUseDarkTheme(!useDarkTheme)}
+                        overrides={{
+                            BaseButton: {
+                                style: ({$theme}) => ({
+                                    borderRadius: $theme.borders.radius200,
+                                    boxShadow: $theme.lighting.shadow500,
+                                    marginLeft: '10px'
+                                })
+                            }
+                        }}
+                    >
+                        በጨለማ መመልከቻውን {useDarkTheme ? ' ያጥፉ' : ' ያብሩ'}
+                    </Button>
                     <Modal
                         onClose={() => setIsOpen(false)}
                         closeable
@@ -208,34 +209,38 @@ export default function Mobile() {
                             }
                         }}
                     >
-                        <ModalHeader>Information</ModalHeader>
+                        <ModalHeader>ማስታወሻ</ModalHeader>
                         <ModalBody>
                             <Paragraph3>
-                                The author is not responsible for the correctness of the data provided. The data may be
-                                out of date.
+                                The data provided here is collected from different sources, and mainly from
+                                official handles. If you want help in providing, updating and verifying the
+                                data please contact us.
                             </Paragraph3>
                             <Paragraph3>
-                                Author: Anteneh Gebeyaw<br/>
-                                Contact: <StyledLink target="_blank"
-                                                     href="mailto:contact@qulph.com"> contact@qulph.com </StyledLink>
-                                <br/><br/>
-                                More information about cases in Ethiopia is available at&nbsp;
-                                <StyledLink target="_blank"
-                                            href="https://covid19.qulph.com">https://covid19.qulph.com</StyledLink>.
-                            </Paragraph3>
-                            <Paragraph3>
-                                The data provided here is collected from different sources, and mainly from official
-                                handles. If you want help in updating and verifying the data, please contact me.
-                            </Paragraph3>
-                            <StyledLink target="_blank" href="https://github.com/agebeyaw/corona">
-                                https://github.com/agebeyaw/corona
+                                Website: <StyledLink target="_blank" href="https://ethiopoetal.org">
+                                https://ethiopoetal.org
                             </StyledLink>
+                                <br/>
+                                Email: <StyledLink target="_blank" href="mailto:info@ethiopoetal.org">
+                                info@ethiopoetal.org
+                            </StyledLink>
+                                <br/><br/>
+                                More information on how to contribute financial support is available at&nbsp;
+                                <StyledLink target="_blank"
+                                            href="https://charity.gofundme.com/o/en/campaign/helping-amhara-region-covid-19-response-effort">
+                                    Let's unite against COVID19
+                                </StyledLink>!
+                            </Paragraph3>
 
-                            <Label2 margin="20px 0 10px">Contributors</Label2>
+
+                            <Label2 margin="20px 0 10px">In collaboration with</Label2>
                             <Contributors/>
                         </ModalBody>
                     </Modal>
                 </Block>
+            </Layer>
+            <Layer>
+                <Chart/>
             </Layer>
         </>
     );

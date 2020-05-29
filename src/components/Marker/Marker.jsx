@@ -1,9 +1,11 @@
 import React from 'react';
 import { useStyletron } from 'baseui';
 
-export default function Marker({ size, casesCount, deathsCount }) {
+export default function Marker({ size, casesCount, recoveredCount, deathsCount }) {
   const [, theme] = useStyletron();
-  const offset = (deathsCount / casesCount) * 100;
+  const offsetdeaths = (deathsCount / casesCount) * 100;
+  const offsetrecovered = (recoveredCount / casesCount) * 100;
+
 
   return (
     <svg
@@ -15,11 +17,19 @@ export default function Marker({ size, casesCount, deathsCount }) {
     >
       {deathsCount && 
         <defs>
-          <linearGradient id={`combined-${offset}`} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset={`${100 - offset}%`} stopColor={theme.colors.negative} />
-            <stop offset={`${offset}%`}  stopColor={theme.colors.primary} />
+          <linearGradient id={`combined-${offsetdeaths}`} x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset={`${100 - offsetdeaths}%`} stopColor={theme.colors.negative} />
+            <stop offset={`${offsetdeaths}%`}  stopColor={theme.colors.primary} />
           </linearGradient>
         </defs>
+      }
+      {recoveredCount &&
+      <defs>
+        <linearGradient id={`combined-${offsetrecovered}`} x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset={`${100 - offsetrecovered}%`} stopColor={theme.colors.positive} />
+          <stop offset={`${offsetrecovered}%`}  stopColor={theme.colors.primary} />
+        </linearGradient>
+      </defs>
       }
 
       <circle
@@ -27,7 +37,7 @@ export default function Marker({ size, casesCount, deathsCount }) {
         cx="50%"
         cy="50%"
         r="8px"
-        fill={deathsCount ? `url(#combined-${offset})` : theme.colors.negative}
+        fill={deathsCount ? `url(#combined-${offsetdeaths})` : theme.colors.negative}
       ></circle>
       {casesCount && (
         <text className="text" x="50%" y="50%" fontSize={'60%'} fill="white" textAnchor="middle" dy=".3em">{casesCount}</text>

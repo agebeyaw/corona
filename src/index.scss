@@ -1,0 +1,184 @@
+body {
+  margin: 0;
+  font-family: "Noto Sans Ethiopic", "Rubik" !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+a {
+  color: black !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.leaflet-container, .leaflet-pane:not(.leaflet-popup-pane) {
+  z-index: unset;
+}
+
+.leaflet-popup-content-wrapper {
+  background: none;
+  box-shadow: none;
+  color: unset;
+  border-radius: 0;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+}
+
+.leaflet-popup-tip-container, .leaflet-popup-close-button {
+  display: none;
+}
+
+.leaflet-div-icon {
+  background: none;
+  border: none;
+}
+
+.leaflet-marker-icon {
+  z-index: 2 !important;
+}
+
+.leaflet-popup-content p {
+  margin: 0;
+}
+
+.dark-theme .leaflet-tile-pane {
+  -webkit-filter: invert(1) grayscale(1);
+  filter: invert(1) grayscale(1);
+}
+
+.pulse {
+  transform-origin: 50% 50%;
+  opacity: 0.9;
+  animation-duration: 2s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+svg.marker text {
+  font-family: "Noto Sans Ethiopic", "Rubik" !important;
+  font-weight: 500;
+}
+
+[data-theme=dark] *::-webkit-scrollbar {
+  width: .35em;
+}
+
+[data-theme=dark] *::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+[data-theme=dark] *::-webkit-scrollbar-thumb {
+  background-color: #333333;
+}
+
+[data-theme=light] *::-webkit-scrollbar {
+  width: .35em;
+}
+
+[data-theme=light] *::-webkit-scrollbar-track {
+  background: #f6f6f6;
+}
+
+[data-theme=light] *::-webkit-scrollbar-thumb {
+  background-color: #cccccc;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.6);
+  }
+}
+
+
+.cards-container {
+  padding: 2rem;
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .card {
+      flex: 0 1 calc(50% - 1em);
+      height: 30rem;
+      margin-bottom: 2em;
+      border: none;
+      .charts-header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-start;
+
+        .chart-title {
+          color: #6c757d;
+          font-size: 1.5rem !important;
+          font-weight: 900;
+          padding: 20px 0;
+          text-transform: uppercase;
+        }
+
+        .chart-content {
+          height: 100%;
+          width: 100%;
+        }
+
+        .chart-note {
+          color: grey;
+          font-size: .8rem;
+          height: 50px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 769px) {
+    margin-left: unset;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 769px) {
+  .cards-container {
+    padding: .5rem;
+
+    .cards {
+      .card {
+        flex: 0 1 100%;
+        height: 25rem;
+        margin-bottom: 0;
+      }
+
+      .chart-title {
+        padding: 20px 0 10px;
+      }
+
+      .card-big {
+        height: 30rem;
+      }
+    }
+  }
+}

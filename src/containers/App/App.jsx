@@ -11,8 +11,8 @@ const engine = new Styletron();
 
 const { typography, ...rest } = DarkTheme;
 
-const lightTheme = createTheme({ ...lightThemePrimitives, primaryFontFamily: 'Rubik' }, {});
-const darkTheme = createTheme({ ...darkThemePrimitives, primaryFontFamily: 'Rubik' }, { ...rest });
+const lightTheme = createTheme({ ...lightThemePrimitives, primaryFontFamily: 'Noto Sans Ethiopic, Rubik' }, {});
+const darkTheme = createTheme({ ...darkThemePrimitives, primaryFontFamily: 'Noto Sans Ethiopic, Rubik' }, { ...rest });
 
 export default function App() {
   return (

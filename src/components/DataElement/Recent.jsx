@@ -45,12 +45,12 @@ export default function Recent({ isLoading, data }) {
   return (
     <>
       <Label3 $style={{ marginBottom: '12px' }}>
-        Recent
+          በቅርብ
       </Label3>
       <Input
         size={SIZE.compact}s
         overrides={{Before: SearchIcon}}
-        placeholder="Search"
+        placeholder="መፈለጊያ"
         onChange={event => setFilter(event.target.value)}
         value={filter}
       />
@@ -76,13 +76,13 @@ export default function Recent({ isLoading, data }) {
 
         <StyledHead role="row">
           <StyledHeadCell role="columnheader">
-            <Paragraph3 margin={0}>Date</Paragraph3>
+            <Paragraph3 margin={0}>ቀን</Paragraph3>
           </StyledHeadCell>
           <StyledHeadCell role="columnheader">
-            <Paragraph3 margin={0}>Count</Paragraph3>
+            <Paragraph3 margin={0}>ብዛት</Paragraph3>
           </StyledHeadCell>
           <StyledHeadCell role="columnheader">
-            <Paragraph3 margin={0}>Location</Paragraph3>
+            <Paragraph3 margin={0}>ቦታ</Paragraph3>
           </StyledHeadCell>
         </StyledHead>
         <StyledTableBody>
@@ -106,7 +106,7 @@ export default function Recent({ isLoading, data }) {
                 <Paragraph4
                   margin={0}
                 >
-                  {city ? <StyledLink onClick={() => setClickedCity(city)} $style={{ cursor: 'pointer' }}>{city}</StyledLink> : 'Not Found' }
+                  {city ? <StyledLink onClick={() => setClickedCity(city)} $style={{ cursor: 'pointer' }}>{city}</StyledLink> : 'ያልታወቀ' }
                 </Paragraph4>
               </StyledCell>
             </StyledRow>

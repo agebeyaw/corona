@@ -121,32 +121,32 @@ import React, {
  }
 
  // Calculate difference between value of two consecutive days
- function solveDifference(regionalNew, regionalOld) {
-  let tempDiff = [];
-
-  for (let i in regionalNew) {
-   let newState = true;
-   for (let j in regionalOld) {
-      if (regionalNew[i].loc === regionalOld[j].loc) {
-      newState = false;
-      let tempObj = {};
-      tempObj.loc = regionalNew[i].loc
-      tempObj.deaths = regionalNew[i].deaths - regionalOld[j].deaths;
-      tempObj.discharged = regionalNew[i].discharged - regionalOld[j].discharged;
-      tempObj.count = regionalNew[i].count - regionalOld[j].count;
-
-      if (tempObj.deaths > 0 || tempObj.discharged > 0 || tempObj.count > 0) {
-        tempDiff.push(tempObj);
-        }
-      }
-      if (!newState) break;
-   }
-   if (newState) {
-      tempDiff.push(regionalNew[i]);
-    }
-  }
-  return tempDiff;
- }
+ // function solveDifference(regionalNew, regionalOld) {
+ //  let tempDiff = [];
+ //
+ //  for (let i in regionalNew) {
+ //   let newState = true;
+ //   for (let j in regionalOld) {
+ //      if (regionalNew[i].loc === regionalOld[j].loc) {
+ //      newState = false;
+ //      let tempObj = {};
+ //      tempObj.loc = regionalNew[i].loc
+ //      tempObj.deaths = regionalNew[i].deaths - regionalOld[j].deaths;
+ //      tempObj.discharged = regionalNew[i].discharged - regionalOld[j].discharged;
+ //      tempObj.count = regionalNew[i].count - regionalOld[j].count;
+ //
+ //      if (tempObj.deaths > 0 || tempObj.discharged > 0 || tempObj.count > 0) {
+ //        tempDiff.push(tempObj);
+ //        }
+ //      }
+ //      if (!newState) break;
+ //   }
+ //   if (newState) {
+ //      tempDiff.push(regionalNew[i]);
+ //    }
+ //  }
+ //  return tempDiff;
+ // }
 
 //  function processBarData(rawData){
 //     //let rawData = cloneDeep(result);

@@ -91,7 +91,7 @@ export function Figure({ count, delta, isLoading, label, color, size = 'standard
 
 
 export default function Figures() {
-  const { cases, deaths, allTime, cures, isLoading } = useData();
+  const { allTime, isLoading } = useData();
 
   const  total = allTime || {
     confirmed: 0,
@@ -103,14 +103,13 @@ export default function Figures() {
     deltaDeaths: 0,
   };
 
-  console.log(total.confirmed, "##############");
   // const [showMore, setShowMore] = useState(false);
   const [, theme] = useStyletron();
   const { width } = useWindowDimensions()
 
     return (
     <StyledCard
-      title="Coronovirus in Ethiopia"
+      title="የኮሮና ቫይረስ በኢትዮጵያ"
       style={$theme => ({
         [$theme.mediaQuery.medium]: {
           maxHeight: 'calc(100vh - 80px)',
@@ -126,7 +125,7 @@ export default function Figures() {
             count={total.tested}
             delta="0"
             isLoading={isLoading}
-            label="Tested"
+            label="የተደረገ ምርመራ"
             color="#2ABAFF"
             size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
@@ -134,7 +133,7 @@ export default function Figures() {
           count={total.confirmed}
           delta={total.deltaConfirmed}
           isLoading={isLoading}
-          label="Confirmed"
+          label="የተገኘባቸው"
           color={theme.colors.negative}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
@@ -142,7 +141,7 @@ export default function Figures() {
               count={total.active}
               delta="0"
               isLoading={isLoading}
-              label="Active"
+              label="በለይቶ ህክምና ውስጥ ያሉ"
               color="orange"
               size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
           />
@@ -150,7 +149,7 @@ export default function Figures() {
           count={total.recovered}
           delta={total.deltaRecovered}
           isLoading={isLoading}
-          label="Recovered"
+          label="ያገገሙ"
           color={theme.colors.positive}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
         />
@@ -158,13 +157,13 @@ export default function Figures() {
           count={total.deaths}
           delta={total.deltaDeaths}
           isLoading={isLoading}
-          label="Deaths"
+          label="ህይወታቸው ያለፈ"
           color={theme.colors.primary}
           size={width < theme.breakpoints.medium ? 'compact' : 'standard'}
       />
       </StyledBody>
       <Paragraph3>
-        <small>Last updated on <em>{total.lastUpdatedTime}</em></small>
+        <small>መረጃው የተጠናቀረበት ጊዜ በፈረንጅ አቆጣጠር <em>{total.lastUpdatedTime}</em></small>
       </Paragraph3>
     </StyledCard>
   );

@@ -1,6 +1,69 @@
 {
   "cities": [
     {
+      "name": "Afar",
+      "location": [
+        11.8166634,
+        41.416665
+      ]
+    },
+    {
+      "name": "Amhara",
+      "location": [
+        11.6608,
+        37.9578
+      ]
+    },
+    {
+      "name": "Beneshangul Gumuz",
+      "location": [
+        10.6390138,
+        35.7330322
+      ]
+    },
+    {
+      "name": "Gambela",
+      "location": [
+        7.6184422,
+        34.6893311
+      ]
+    },
+    {
+      "name": "Hareri",
+      "location": [
+        9.3109946,
+        42.1238136
+      ]
+    },
+    {
+      "name": "Oromia",
+      "location": [
+        7.9890616,
+        39.3811798
+      ]
+    },
+    {
+      "name": "SNNP",
+      "location": [
+        6.05862,
+        36.7273
+      ]
+    },
+    {
+      "name": "Somali",
+      "location": [
+        7.4387305,
+        44.296875
+      ]
+    },
+    {
+      "name": "Tigray",
+      "location": [
+        14.1365757,
+        38.3093262
+      ]
+    },
+    {
       "name": "Gewane",
       "location": [
         10.16658,
