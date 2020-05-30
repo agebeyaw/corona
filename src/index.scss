@@ -5,6 +5,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav {
+  h4 {
+    color: white;
+  }
+}
 
 a {
   color: black !important;
@@ -125,6 +130,7 @@ svg.marker text {
       height: 30rem;
       margin-bottom: 2em;
       border: none;
+
       .charts-header {
         align-items: center;
         display: flex;

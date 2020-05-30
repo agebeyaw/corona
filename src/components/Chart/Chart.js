@@ -30,9 +30,9 @@ function Chart() {
                 rawDataResponse,
                 stateDailyResponse,
             ] = await Promise.all([
-                axios.get('https://covid19-ethiopia.qulph.com/api/data.json'),
-                axios.get('https://covid19-ethiopia.qulph.com/api/raw_data.json'),
-                axios.get('https://covid19-ethiopia.qulph.com/api/states_daily.json'),
+                axios.get(process.env.REACT_APP_API_URL + '/api/data.json'),
+                axios.get(process.env.REACT_APP_API_URL + '/api/raw_data.json'),
+                axios.get(process.env.REACT_APP_API_URL + '/api/states_daily.json'),
             ]);
             setTimeseries(response.data.cases_time_series);
             setStatesTimeSeries(stateDailyResponse.data.states_daily);
@@ -70,13 +70,13 @@ function Chart() {
             </Row>
             <Row className="cards">
                 <Col md={4} className="card fadeInUp" style={{animationDelay: '0.7s'}}>
-                    <GenderChart title="ተጠቂዎች በጾታ" data={rawData} />
+                    <GenderChart title="ተጠቂዎች በጾታ" data={rawData}/>
                 </Col>
                 <Col md={4} className="card fadeInUp" style={{animationDelay: '0.7s'}}>
-                    <AgeChart title="ተጠቂዎች በዕድሜ ምድብ" data={rawData} />
+                    <AgeChart title="ተጠቂዎች በዕድሜ ምድብ" data={rawData}/>
                 </Col>
                 <Col md={4} className="card fadeInUp" style={{animationDelay: '0.7s'}}>
-                    <NationalityChart title="ተጠቂዎች በዜግነት" data={rawData} />
+                    <NationalityChart title="ተጠቂዎች በዜግነት" data={rawData}/>
                 </Col>
             </Row>
         </div>
