@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Map, DataElement, Contributors, Header, Chart} from '../../components';
+import {Map, DataElement, Contributors, Header, Chart, Sections, Footer} from '../../components';
 
 import {useStyletron} from 'baseui';
 import {Layer} from 'baseui/layer';
@@ -14,6 +14,7 @@ import {Tabs, Tab} from 'baseui/tabs';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
 import {Figure} from '../Figures/Figures';
 import {useData} from '../../contexts/DataContext';
+import {Col} from "react-bootstrap";
 
 function CustomTab(props) {
     return (
@@ -217,12 +218,12 @@ export default function Mobile() {
                                 data please contact us.
                             </Paragraph3>
                             <Paragraph3>
-                                Website: <StyledLink target="_blank" href="https://ethiopoetal.org">
-                                https://ethiopoetal.org
+                                Website: <StyledLink target="_blank" href="https://ethioportal.org">
+                                https://ethioportal.org
                             </StyledLink>
                                 <br/>
-                                Email: <StyledLink target="_blank" href="mailto:info@ethiopoetal.org">
-                                info@ethiopoetal.org
+                                Email: <StyledLink target="_blank" href="mailto:info@ethioportal.org">
+                                info@ethioportal.org
                             </StyledLink>
                                 <br/><br/>
                                 More information on how to contribute financial support is available at&nbsp;
@@ -241,6 +242,12 @@ export default function Mobile() {
             </Layer>
             <Layer>
                 <Chart/>
+            </Layer>
+            <Layer>
+                <Sections/>
+            </Layer>
+            <Layer>
+                <Footer/>
             </Layer>
         </>
     );

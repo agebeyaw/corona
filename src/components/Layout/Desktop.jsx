@@ -123,12 +123,12 @@ export default function Layout() {
                                             data please contact us.
                                         </Paragraph3>
                                         <Paragraph3>
-                                            Website: <StyledLink target="_blank" href="https://ethiopoetal.org">
-                                                        https://ethiopoetal.org
+                                            Website: <StyledLink target="_blank" href="https://ethioportal.org">
+                                                        https://ethioportal.org
                                                     </StyledLink>
                                             <br/>
-                                            Email: <StyledLink target="_blank" href="mailto:info@ethiopoetal.org">
-                                                        info@ethiopoetal.org
+                                            Email: <StyledLink target="_blank" href="mailto:info@ethioportal.org">
+                                                        info@ethioportal.org
                                                     </StyledLink>
                                             <br/><br/>
                                             More information on how to contribute financial support is available at&nbsp;

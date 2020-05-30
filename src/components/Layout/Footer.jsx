@@ -3,15 +3,15 @@ import {Card, Container, Row, Col} from "react-bootstrap";
 
 export default function Footer() {
     return (
-        <div className='border-top' style={{'background': '#dee2e6'}}>
-            <footer className="mt-5  pb-5 footer">
+        <div className='mt-5 border-top' style={{'background': '#dee2e6'}}>
+            <footer className="p-5 footer">
                 <Container>
                     <Row>
                         <Col>
                             <h3 className={'mb-3'}>የአስቸኳይ ጊዜ ቁጥሮች</h3>
                             <Row>
-                                <Col>
-                                    <ul className="list-group ml-2">
+                                <Col md={6}>
+                                    <ul className="list-group">
                                         <li className="d-flex justify-content-between align-items-center">
                                             አዲስ አበባ
                                             <span className="badge badge-primary badge-pill">8335/952</span>
@@ -30,7 +30,7 @@ export default function Footer() {
                                         </li>
                                     </ul>
                                 </Col>
-                                <Col>
+                                <Col md={6}>
                                     <ul className="list-group">
                                         <li className="d-flex justify-content-between align-items-center">
                                             አማራ

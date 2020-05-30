@@ -9,7 +9,7 @@ export default function Remind() {
             <Row className="cards">
                 <Col md={2}>
                     <Card>
-                        <Card.Img src="images/reminder/distance.png"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/reminder/distance.png"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>እርቀትዎን ይጠብቁ !</Card.Title>
                             <Card.Text>
@@ -20,7 +20,7 @@ export default function Remind() {
                 </Col>
                 <Col md={2}>
                     <Card>
-                        <Card.Img height="250px" src="images/reminder/mask.png"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/reminder/mask.png"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>የአፍ ጭምብል ይጠቀሙ !</Card.Title>
                             <Card.Text>
@@ -31,7 +31,7 @@ export default function Remind() {
                 </Col>
                 <Col md={2}>
                     <Card>
-                        <Card.Img height="250px" src="images/reminder/stay_home.png"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/reminder/stay_home.png"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>እቤትዎ ይቆዩ !</Card.Title>
                             <Card.Text>
@@ -42,7 +42,7 @@ export default function Remind() {
                 </Col>
                 <Col md={2}>
                     <Card>
-                        <Card.Img height="250px" src="images/reminder/wash.jpg"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/reminder/wash.jpg"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>እጅዎትን ይታጠቡ !</Card.Title>
                             <Card.Text>

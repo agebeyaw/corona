@@ -104,7 +104,7 @@ export default function Map(props) {
     }
 
     const max = Math.max(...(data.map(({cases}) => cases.total)));
-    const position = clickedCity ? getLocationForCity(clickedCity, data) : [9.005401, 38.763611];
+    const position = clickedCity ? getLocationForCity(clickedCity, data) : [9.505401, 38.763611];
 
     return (
         <LeafletMap

@@ -9,7 +9,7 @@ export default function Symptoms() {
             <Row className="cards">
                 <Col md={2}>
                     <Card>
-                        <Card.Img src="images/symptoms/cauthing.png"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/symptoms/cauthing.png"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>ደረቅ ሳል</Card.Title>
                         </Card.Body>
@@ -17,7 +17,7 @@ export default function Symptoms() {
                 </Col>
                 <Col md={2}>
                     <Card>
-                        <Card.Img src="images/symptoms/headache.png"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/symptoms/headache.png"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>ትኩሳት</Card.Title>
                         </Card.Body>
@@ -25,7 +25,7 @@ export default function Symptoms() {
                 </Col>
                 <Col md={2}>
                     <Card>
-                        <Card.Img src="images/symptoms/throat.png"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/symptoms/throat.png"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>የጉሮሮ ቁስለት</Card.Title>
                         </Card.Body>
@@ -33,7 +33,7 @@ export default function Symptoms() {
                 </Col>
                 <Col md={2}>
                     <Card>
-                        <Card.Img src="images/symptoms/shortness-of-breath.jpg"/>
+                        <Card.Img style={{'max-height':'300px'}} src="images/symptoms/shortness-of-breath.jpg"/>
                         <Card.Body>
                             <Card.Title className={'font-weight-bold'}>የእስትንፋስ እጥረት</Card.Title>
                         </Card.Body>
